@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'currency.dart';
+import 'info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -51,7 +52,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Währungsrechner')),
+      appBar: AppBar(
+        title: const Text('Währungsrechner'),
+        actions: [
+          // Navigation zum Info_screen
+          IconButton(
+            icon: const Icon(Icons.info),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => InfoScreen()),
+              );
+            },
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
